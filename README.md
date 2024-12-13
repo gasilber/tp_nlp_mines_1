@@ -1,4 +1,4 @@
-# Travaux pratiques sur les expressions régulières: JudiLibre
+# Travaux pratiques sur le "scraping" et les expressions régulières: JudiLibre
 
 Vous venez d'être recruté par la jeune startup [Docteur Justice](https://fr.wikipedia.org/wiki/Docteur_Justice) qui souhaite créer un LLM afin de réaliser des analyses juridiques.
 Pour cela, cette startup a besoin d'un fond documentaire incluant les données de jurisprudence des cours de droit privé (tribunaux judiciaires, cours d'appel et cour de cassation).
@@ -15,26 +15,26 @@ Justifiez votre réponse.
 
 TODO
 
-### Exercice 2: extraction de données structurées
+### Exercice 2: proposition de stratégie de récupération du stock
 
-Grâce à des expressions régulières, modifiez la méthode `from_html` pour ajouter l'extraction des différents éléments.
+Votre startup souhaite récupérer toutes les données (format HTML) de la cour de cassation du site JudiLibre (stock) et de manière quotidienne toutes les modifications (flux), contenant les nouveaux documents et les documents modifiés.
+
+Proposez une stratégie pour implémenter un robot de récupération, et donnez une estimation du temps nécessaire pour récupérer tout le stock avec diverses stratégies.
 
 #### Réponse
 
 TODO
 
+### Exercice 3: extraction de données structurées
 
-## Annexes
+Grâce à des expressions régulières, modifiez la méthode `from_html` pour ajouter l'extraction des différents éléments.
 
-```bash
-get_judilibre search 61 | grep '<a href="/deci' | wc -l
-# 90
-```
+Utilisez `unittest` tel que ci-dessous pour mesurer l'avancée de votre travail:
 
 ```bash
 python -m unittest tp_regexps.test_regexps
 ```
 
-```bash
-get_judilibre write_test_decisions tp_regexps/data/ccass --force
-```
+#### Réponse
+
+TODO
