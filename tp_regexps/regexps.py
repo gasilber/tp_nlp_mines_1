@@ -1,4 +1,5 @@
 import re
 
 decision_ref_re = re.compile(r'<a\s+href="/decision/(?P<id>[^\?]+)')
-ecli_re = re.compile(r"TODO")
+ecli_re = re.compile(r"<p>(?P<ecli>ECLI:[A-Z]{2}:[A-Z]+:\d{4}:[A-Z0-9]+)</p>")
+chamber_re = re.compile(r",\s*(?P<chamber>[A-ZÉÈÊÀ ]*CHAMBRE(?: [A-ZÉÈÊÀ]+)*)\s*,")

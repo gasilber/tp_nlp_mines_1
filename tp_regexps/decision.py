@@ -89,11 +89,18 @@ class Decision(object):
             return m.group("ecli")
         return None
 
+    @staticmethod
+    def __get_chamber(data: str):
+        m = regexps.chamber_re.search(data)
+        if m:
+            return m.group("chamber")
+        return None
+
     @classmethod
     def from_html(cls, id: str, html: str):
         d = cls(id=id)
         d.ecli = cls.__get_ecli(html)
-        # TODO: "chamber"
+        d.chamber = cls.__get_chamber(html)
         # TODO: "formation"
         # TODO: "publication"
         # TODO: "number"
