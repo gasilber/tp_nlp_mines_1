@@ -12,7 +12,6 @@ description = "Travaux pratiques sur les expressions régulières du cours NLP d
 authors = [{ name = "Georges-Andre Silber", email = "georges-andre.silber@minesparis.psl.eu" }]
 license = { text = "CeCILL-B" }
 readme = "README.md"
-requires-python = ">=3.9"
 
 keywords = ["nlp"]
 
