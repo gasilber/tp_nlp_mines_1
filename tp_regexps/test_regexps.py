@@ -44,3 +44,9 @@ class TestRegexps(unittest.TestCase):
 		for id, reference_decision, html_decision in self.__iterate_on_decisions():
 			with self.subTest(id, id=id):
 				self.assertEqual(reference_decision.ecli, html_decision.ecli, id)
+
+	def test_chamber(self):
+		"""Récupération de la chambre"""
+		for id, reference_decision, html_decision in self.__iterate_on_decisions():
+			with self.subTest(id, id=id):
+				self.assertEqual(reference_decision.chamber, html_decision.chamber, id)
