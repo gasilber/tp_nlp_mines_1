@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["tp_regexps"]
+
+[project]
+name = "tp_regexps"
+version = "0.1"
+description = "Travaux pratiques sur les expressions régulières du cours NLP des mines de Paris"
+authors = [{ name = "Georges-Andre Silber", email = "georges-andre.silber@minesparis.psl.eu" }]
+license = { text = "CeCILL-B" }
+readme = "README.md"
+requires-python = ">=3.9"
+
+keywords = ["nlp"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+    "requests_html",
+    "lxml_html_clean",
+]
+
+[project.optional-dependencies]
+
+testing = ['WebTest', 'pytest', 'pytest-cov']
+
+[project.scripts]
+get_judilibre = "tp_regexps.scripts.get_judilibre:main"
+
+# Options Pytest
+[tool.pytest.ini_options]
+addopts = "--cov --cov-report=term-missing"
+testpaths = ["tests"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv/tp_regexps"
