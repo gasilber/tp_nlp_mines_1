@@ -78,10 +78,28 @@ class Decision(object):
 			return m.group('chamber')
 		return None
 	
+	@staticmethod
 	def __get_formation(data:str):
 		m = regexps.decision_header_re.search(data)
 		if m:
 			return m.group('formation')
+		return None
+	
+	@staticmethod
+	def __get_publication(data:str):
+		m = regexps.decision_header_re.search(data)
+		if m:
+			return m.group('publication')
+		return None
+	
+	@staticmethod
+	def __get_number(data:str):
+		# m = regexps.decision_header_re.search(data)
+		# if m:
+		# 	return m.group('number')
+		m = regexps.number_re.search(data)
+		if m:
+			return m.group('number')
 		return None
 
 	@classmethod
@@ -90,11 +108,9 @@ class Decision(object):
 		d.ecli = cls.__get_ecli(html)
 		d.chamber = cls.__get_chamber(html)
 		d.formation = cls.__get_formation(html)
-		# TODO: "chamber"
-		# TODO: "formation"
-		# TODO: "publication"
+		d.publication = cls.__get_publication(html)
+		d.number = cls.__get_number(html)
 		# TODO: "number"
-		# TODO: "ecli"
 		# TODO: "decision_date"
 		# TODO: "solution"
 		# TODO: "content"
