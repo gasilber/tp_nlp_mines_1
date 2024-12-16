@@ -107,7 +107,7 @@ class Decision(object):
     def __get_publication(data: str):
         m = regexps.publication_re.search(data)
         if m:
-            return m.group("publication")
+            return m.group("publication").replace("  ", "").replace("\n", "") or None
         return None
     
     @staticmethod
