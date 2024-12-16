@@ -101,6 +101,16 @@ class Decision(object):
 		if m:
 			return m.group('number')
 		return None
+	
+	@staticmethod
+	def __get_decision_date(data:str):
+		# m = regexps.decision_header_re.search(data)
+		# if m:
+		# 	return m.group('decision_date')
+		m = regexps.date_re.search(data)
+		if m:
+			return m.group('decision_date')
+		return None
 
 	@classmethod
 	def from_html(cls, id:str, html:str):
@@ -110,7 +120,7 @@ class Decision(object):
 		d.formation = cls.__get_formation(html)
 		d.publication = cls.__get_publication(html)
 		d.number = cls.__get_number(html)
-		# TODO: "number"
+		d.decision_date = cls.__get_decision_date(html)
 		# TODO: "decision_date"
 		# TODO: "solution"
 		# TODO: "content"

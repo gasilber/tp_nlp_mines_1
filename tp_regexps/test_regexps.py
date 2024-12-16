@@ -68,3 +68,9 @@ class TestRegexps(unittest.TestCase):
 		for id, reference_decision, html_decision in self.__iterate_on_decisions():
 			with self.subTest(id, id=id):
 				self.assertEqual(reference_decision.number, html_decision.number, id)
+
+	def test_date(self):
+		"""Récupération de la date de la décision"""
+		for id, reference_decision, html_decision in self.__iterate_on_decisions():
+			with self.subTest(id, id=id):
+				self.assertEqual(reference_decision.decision_date, html_decision.decision_date, id)
