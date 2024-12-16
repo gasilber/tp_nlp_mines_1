@@ -59,14 +59,14 @@ class TestRegexps(unittest.TestCase):
                     reference_decision.formation, html_decision.formation, id
                 )
 
-    # def test_publication(self):
-    #     """Récupération du publication"""
-    #     for id, reference_decision, html_decision in self.__iterate_on_decisions():
-    #         with self.subTest(id, id=id):
-    #             self.assertEqual(
-    #                 reference_decision.publication, html_decision.publication, id
-    #             )
-    #
+    def test_publication(self):
+        """Récupération du publication"""
+        for id, reference_decision, html_decision in self.__iterate_on_decisions():
+            with self.subTest(id, id=id):
+                self.assertEqual(
+                    reference_decision.publication, html_decision.publication, id
+                )
+
     # def test_number(self):
     #     """Récupération du number"""
     #     for id, reference_decision, html_decision in self.__iterate_on_decisions():
