@@ -117,6 +117,37 @@ class Decision(object):
             return m.group("number") or None
         return None
 
+    @staticmethod
+    def __get_date(data: str):
+        m = regexps.date_re.search(data)
+
+        month_dict = {
+            "janvier": "01",
+            "février": "02",
+            "mars": "03",
+            "avril": "04",
+            "mai": "05",
+            "juin": "06",
+            "juillet": "07",
+            "août": "08",
+            "septembre": "09",
+            "octobre": "10",
+            "novembre": "11",
+            "décembre": "12",
+        }
+
+        if m:
+            day = m.group("day")
+
+            if len(day) == 1:
+                day = f"0{day}"
+
+            month = m.group("month")
+            year = m.group("year")
+
+            return f"{year}-{month_dict[month]}-{day}"
+        return None
+
     @classmethod
     def from_html(cls, id: str, html: str):
         d = cls(id=id)
@@ -125,6 +156,7 @@ class Decision(object):
         d.formation = cls.__get_formation(html)
         d.publication = cls.__get_publication(html)
         d.number = cls.__get_number(html)
+        d.decision_date = cls.__get_date(html)
 
         # TODO: "decision_date"
         # TODO: "solution"

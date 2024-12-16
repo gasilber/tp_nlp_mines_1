@@ -10,3 +10,6 @@ publication_re = re.compile(
 number_re = re.compile(
     r"<title>Décision\s-\sPourvoi\sn°(?P<number>.*)\s\|\sCour\sde\scassation<\/title>"
 )
+date_re = re.compile(
+    r"<h1>(?P<day>\d{1,2})\s(?P<month>[a-zA-Zéèô]*)\s(?P<year>\d{4})<br>"
+)
