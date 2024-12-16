@@ -89,15 +89,75 @@ class Decision(object):
             return m.group("ecli")
         return None
 
+    @staticmethod
+    def __get_chamber(data: str):
+        m = regexps.chamber_re.search(data)
+        if m:
+            return m.group("chamber")
+        return None
+
+    @staticmethod
+    def __get_formation(data: str):
+        m = regexps.formation_re.search(data)
+        if m:
+            return m.group("formation")
+        return None
+
+    @staticmethod
+    def __get_publication(data: str):
+        m = regexps.publication_re.search(data)
+        if m:
+            return m.group("publication") or None
+        return None
+
+    @staticmethod
+    def __get_number(data: str):
+        m = regexps.number_re.search(data)
+        if m:
+            return m.group("number") or None
+        return None
+
+    @staticmethod
+    def __get_date(data: str):
+        m = regexps.date_re.search(data)
+
+        month_dict = {
+            "janvier": "01",
+            "février": "02",
+            "mars": "03",
+            "avril": "04",
+            "mai": "05",
+            "juin": "06",
+            "juillet": "07",
+            "août": "08",
+            "septembre": "09",
+            "octobre": "10",
+            "novembre": "11",
+            "décembre": "12",
+        }
+
+        if m:
+            day = m.group("day")
+
+            if len(day) == 1:
+                day = f"0{day}"
+
+            month = m.group("month")
+            year = m.group("year")
+
+            return f"{year}-{month_dict[month]}-{day}"
+        return None
+
     @classmethod
     def from_html(cls, id: str, html: str):
         d = cls(id=id)
         d.ecli = cls.__get_ecli(html)
-        # TODO: "chamber"
-        # TODO: "formation"
-        # TODO: "publication"
-        # TODO: "number"
-        # TODO: "ecli"
+        d.chamber = cls.__get_chamber(html)
+        d.formation = cls.__get_formation(html)
+        d.publication = cls.__get_publication(html)
+        d.number = cls.__get_number(html)
+        d.decision_date = cls.__get_date(html)
+
         # TODO: "decision_date"
         # TODO: "solution"
         # TODO: "content"
