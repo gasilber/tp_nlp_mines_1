@@ -101,10 +101,10 @@ class Decision(object):
         d = cls(id=id)
         d.ecli = cls.__get_ecli(html)
         d.chamber = cls.__get_chamber(html)
-        # TODO: "formation"
-        # TODO: "publication"
-        # TODO: "number"
-        # TODO: "ecli"
+        # d.formation = cls.__get_formation(html)
+        # d.publication = cls.__get_publication(html)
+        # d.number = cls.__get_number(html)
+
         # TODO: "decision_date"
         # TODO: "solution"
         # TODO: "content"
