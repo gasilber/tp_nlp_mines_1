@@ -7,3 +7,6 @@ formation_re = re.compile(r'<p\s+class="h4-like">.*\n\s*-\s*(?P<formation>.*)')
 publication_re = re.compile(
     r'<p\s+class=".* h4-like--emphase">\n\s*(?P<publication>[^<^\n]*)'
 )
+number_re = re.compile(
+    r"<title>Décision\s-\sPourvoi\sn°(?P<number>.*)\s\|\sCour\sde\scassation<\/title>"
+)

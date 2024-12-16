@@ -67,12 +67,12 @@ class TestRegexps(unittest.TestCase):
                     reference_decision.publication, html_decision.publication, id
                 )
 
-    # def test_number(self):
-    #     """Récupération du number"""
-    #     for id, reference_decision, html_decision in self.__iterate_on_decisions():
-    #         with self.subTest(id, id=id):
-    #             self.assertEqual(reference_decision.number, html_decision.number, id)
-    #
+    def test_number(self):
+        """Récupération du number"""
+        for id, reference_decision, html_decision in self.__iterate_on_decisions():
+            with self.subTest(id, id=id):
+                self.assertEqual(reference_decision.number, html_decision.number, id)
+
     # def test_decision_date(self):
     #     """Récupération du decision_date"""
     #     for id, reference_decision, html_decision in self.__iterate_on_decisions():
