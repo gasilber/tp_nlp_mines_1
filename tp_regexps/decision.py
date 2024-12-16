@@ -88,20 +88,75 @@ class Decision(object):
         if m:
             return m.group("ecli")
         return None
+    
+    @staticmethod
+    def __get_chamber(data: str):
+        m = regexps.chamber_re.search(data)
+        if m:
+            return m.group("chamber")
+        return None
+    
+    @staticmethod
+    def __get_formation(data: str):
+        m = regexps.formation_re.search(data)
+        if m:
+            return m.group("formation")
+        return None
+    
+    @staticmethod
+    def __get_publication(data: str):
+        m = regexps.publication_re.search(data)
+        if m:
+            return m.group("publication")
+        return None
+    
+    @staticmethod
+    def __get_number(data: str):
+        m = regexps.number_re.search(data)
+        if m:
+            return m.group("number")
+        return None
+    
+    @staticmethod
+    def __get_decision_date(data: str):
+        m = regexps.decision_date_re.search(data)
+        if m:
+            return m.group("decision_date")
+        return None
+    
+    @staticmethod
+    def __get_solution(data: str):
+        m = regexps.solution_re.search(data)
+        if m:
+            return m.group("solution")
+        return None
+    
+    @staticmethod
+    def __get_content(data: str):
+        m = regexps.content_re.search(data)
+        if m:
+            return m.group("content")
+        return None
+    
+    @staticmethod
+    def __get_texts(data: str):
+        m = regexps.texts_re.search(data)
+        if m:
+            return m.group("texts")
+        return None
 
     @classmethod
     def from_html(cls, id: str, html: str):
         d = cls(id=id)
         d.ecli = cls.__get_ecli(html)
-        # TODO: "chamber"
-        # TODO: "formation"
-        # TODO: "publication"
-        # TODO: "number"
-        # TODO: "ecli"
-        # TODO: "decision_date"
-        # TODO: "solution"
-        # TODO: "content"
-        # TODO: "texts"
+        d.chamber = cls.__get_chamber(html)
+        d.formation = cls.__get_formation(html)
+        d.publication = cls.__get_publication(html)
+        d.number = cls.__get_number(html)
+        d.decision_date = cls.__get_decision_date(html)
+        d.solution = cls.__get_solution(html)
+        d.content = cls.__get_content(html)
+        d.texts = cls.__get_texts(html)
         return d
 
 
