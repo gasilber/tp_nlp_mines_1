@@ -51,14 +51,14 @@ class TestRegexps(unittest.TestCase):
             with self.subTest(id, id=id):
                 self.assertEqual(reference_decision.chamber, html_decision.chamber, id)
 
-    # def test_formation(self):
-    #     """Récupération du formation"""
-    #     for id, reference_decision, html_decision in self.__iterate_on_decisions():
-    #         with self.subTest(id, id=id):
-    #             self.assertEqual(
-    #                 reference_decision.formation, html_decision.formation, id
-    #             )
-    #
+    def test_formation(self):
+        """Récupération du formation"""
+        for id, reference_decision, html_decision in self.__iterate_on_decisions():
+            with self.subTest(id, id=id):
+                self.assertEqual(
+                    reference_decision.formation, html_decision.formation, id
+                )
+
     # def test_publication(self):
     #     """Récupération du publication"""
     #     for id, reference_decision, html_decision in self.__iterate_on_decisions():
