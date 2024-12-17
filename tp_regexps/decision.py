@@ -119,9 +119,32 @@ class Decision(object):
     
     @staticmethod
     def __get_decision_date(data: str):
+        french_months = {
+            "janvier": "01",
+            "février": "02",
+            "mars": "03",
+            "avril": "04",
+            "mai": "05",
+            "juin": "06",
+            "juillet": "07",
+            "août": "08",
+            "septembre": "09",
+            "octobre": "10",
+            "novembre": "11",
+            "décembre": "12"
+        }
+
         m = regexps.decision_date_re.search(data)
         if m:
-            return m.group("decision_date")
+            day = m.group("day")
+            if len(day) == 1:
+                day = '0' + day
+                
+            month = m.group("month")
+            year = m.group("year")
+
+            return '-'.join([year, french_months[month], day])
+
         return None
     
     @staticmethod
