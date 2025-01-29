@@ -1,2 +1,2 @@
 *.html linguist-vendored
-
+*.json linguist-vendored
